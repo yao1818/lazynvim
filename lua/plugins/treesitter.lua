@@ -58,6 +58,7 @@ return {
         ["@string"] = { fg = "#83A598", bold = false};
         ["@keyword"] = { fg = "#83A598", bold = false};
         ["@repeat"] = { fg = "#fabd2f", bold = false};
+        --["@keyword.return"] = { fg = "#fabd2f", bold = false};
         ["@conditional"] = { fg = "#fabd2f", bold = false};
         ["@punctuation.bracket"] = { fg = "#d5c4a1", bold = false};
         ["@punctuation.delimiter"] = { fg = "#d5c4a1", bold = false};  -- 6AB97C green DEB34D
@@ -65,8 +66,7 @@ return {
         ["@variable"] = { fg = "#d5c4a1", bold = false};
         ["@parameter"] = { fg = "#d5c4a1", bold = false};
         ["@property"] = { fg = "#d5c4a1", bold = false};
-        ["@operator"] = { fg = "#d5EFa1", bold = false};
-
+        ["@operator"] = { fg = "#bfc4a1", bold = false};
 
       }),
 

@@ -29,8 +29,12 @@ return {
         Search       = {fg = "#928374"}, -- 搜索的背景颜色
         IncSearch    = {fg = "#d79921"}, -- 光标指向搜索文字时颜色
         CursorLine   = {bg = "#282828"},
-
         --MatchParen    = {fg = "#b16286"},  --光标在括号上显示的颜色
+
+        -- git signs
+        GitSignsAdd    = {bg = "", fg = "#b8bb26"},    --"#98971a"
+        GitSignsChange = {bg = "", fg = "#83a598"},    --"#458588"
+        GitSignsDelete = {bg = "", fg = "#fb4934"},    --"#cc241d"
         }
 
       })
