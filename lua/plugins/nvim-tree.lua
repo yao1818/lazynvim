@@ -3,7 +3,8 @@
 return {
 
 {
-  "nvim-tree/nvim-tree.lua",
+  "yao1818/nvim-tree.lua",
+  branch = "dev",
   version = "*",
   dependencies = {"nvim-tree/nvim-web-devicons"},
   config = function()

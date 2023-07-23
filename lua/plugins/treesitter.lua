@@ -1,3 +1,4 @@
+local G = require('G')
 
 return {
 
@@ -15,7 +16,7 @@ return {
     
       -- Automatically install missing parsers when entering buffer
       -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-      auto_install = true,
+      auto_install = false,
     
       -- List of parsers to ignore installing (for "all")
       -- ignore_install = { "javascript" },
@@ -46,6 +47,46 @@ return {
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
       },
+
+      G.hi({
+--        ["@function"] = { fg = "#B8BB50", bold = true};
+        ["@storageclass"] = { fg = "#83A598", bold = false};
+        ["@constant"] = { fg = "#83A598", bold = false};
+        ["@type"] = { fg = "#83A598", bold = false};
+        ["@string"] = { fg = "#83A598", bold = false};
+        ["@keyword"] = { fg = "#D79921", bold = false};
+        ["@repeat"] = { fg = "#D79921", bold = false};
+        ["@conditional"] = { fg = "#d79921", bold = false};
+        ["@punctuation.bracket"] = { fg = "#d5c4a1", bold = false};
+        ["@punctuation.delimiter"] = { fg = "#d5c4a1", bold = false};  -- 6AB97C green DEB34D
+        ["@number"] = { fg = "#D79921", bold = false};
+        ["@variable"] = { fg = "#d5c4a1", bold = false};
+        ["@parameter"] = { fg = "#d5c4a1", bold = false};
+        ["@property"] = { fg = "#d5c4a1", bold = false};
+        ["@operator"] = { fg = "#d5c4a1", bold = false};
+
+
+      }),
+
+      playground = {
+        enable = true,
+        disable = {},
+        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+        persist_queries = false, -- Whether the query persists across vim sessions
+        keybindings = {
+--          toggle_query_editor = 'o',
+--          toggle_hl_groups = 'i',
+--          toggle_injected_languages = 't',
+--          toggle_anonymous_nodes = 'a',
+--          toggle_language_display = 'I',
+--          focus_language = 'f',
+--          unfocus_language = 'F',
+--          update = 'R',
+--          goto_node = '<cr>',
+--          show_help = '?',
+        },
+      }
+
     }
   end
 }
