@@ -1,6 +1,6 @@
 
---return {
---
+return {
+
 --{
 --  "tanvirtin/vgit.nvim",
 --  version = "*",
@@ -230,5 +230,5 @@
 --      }
 --  end
 --}
---
---}
+
+}

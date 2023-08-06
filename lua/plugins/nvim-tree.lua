@@ -1,5 +1,4 @@
 
-
 return {
 
 {
@@ -36,7 +35,25 @@ return {
         -- 自定义列表中快捷键
         mappings = {
             custom_only = false,
-            list = list_keys,
+            list = {
+              -- 打开文件或文件夹
+              --{ key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
+              -- 分屏打开文件
+              { key = "v", action = "vsplit" },
+              { key = "h", action = "split" },
+              -- 显示隐藏文件
+              { key = "i", action = "toggle_custom" }, -- 对应 filters 中的 custom (node_modules)
+              { key = ".", action = "toggle_dotfiles" }, -- Hide (dotfiles)
+              -- 文件操作
+              { key = "<F5>", action = "refresh" },
+              { key = "a", action = "create" },
+              { key = "d", action = "remove" },
+              { key = "r", action = "rename" },
+              { key = "x", action = "close_node" },
+              { key = "c", action = "copy" },
+              { key = "p", action = "paste" },
+              { key = "s", action = "system_open" },
+            },
         },
         -- 不显示行数
         number = false,
