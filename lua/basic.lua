@@ -92,4 +92,14 @@ vim.g.mkdp_command_for_global = 1
 vim.g.mkdp_open_ip = '127.0.0.1'
 vim.g.mkdp_theme = 'dark'
 
+-- 自动关闭 NvimTree 功能
+vim.api.nvim_create_autocmd("BufEnter", {
+  nested = true,
+  callback = function()
+    if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+      vim.cmd "quit"
+    end
+  end
+})
+
 --vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
