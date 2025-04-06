@@ -30,6 +30,7 @@ return {
             },
           },
         },
+
         extensions = {
            -- 扩展插件配置
         },

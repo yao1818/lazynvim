@@ -27,7 +27,7 @@ return {
     },
     view = {
         -- 宽度
-        width = 35,
+        width = 30,
         -- 也可以 'right'
         side = 'left',
         -- 隐藏根目录
@@ -92,13 +92,24 @@ return {
             folder_arrow = true,
             file = false,
             folder = false,
+            git = true,
         },
         glyphs = {
             symlink = "•", --•➜
             folder = {
                 arrow_closed = "▶",
                 arrow_open = "▽",   -- ∨ ▽ ▷ ▶  ◆ ◇
-            }
+            },
+            git = {
+              unstaged = "[M]",  -- Modified
+              staged = "[+]",    -- Staged
+              unmerged = "[!]",  -- Conflict
+              renamed = "[R]",   -- Renamed
+              untracked = "[?]", -- Untracked
+              deleted = "[D]",   -- Deleted
+              ignored = "[ ]",   -- Ignored
+            },
+
         },
       },
     },

@@ -3,7 +3,7 @@ return {
 
 {
   "lukas-reineke/indent-blankline.nvim",
-  version = "*",
+  version = "2.2.0",
   config = function()
       require("indent_blankline").setup {
         -- 空行占位

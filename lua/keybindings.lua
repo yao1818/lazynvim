@@ -2,8 +2,8 @@
 
 
 -- key leader
-vim.g.mapleader = ""
-vim.g.maplocalleader = "<Fn>"
+vim.g.mapleader = " "
+-- vim.g.maplocalleader = ""
 
 -- 保存本地变量
 local map = vim.api.nvim_set_keymap
@@ -132,7 +132,10 @@ map("i", "<C-j>", "> ", opt) -- Block ctrl
 -- 获取时间戳
 map("n", "<C-n>", ":r!date '+\\%F \\%H:\\%M'<CR>", opt)
 
-
+-- DiffView 快捷键
+map("n", "<leader>dv", ":DiffviewOpen<CR>", { desc = "DiffView: Open diff" })
+map("n", "<leader>dc", ":DiffviewClose<CR>", { desc = "DiffView: Close view" })
+map("n", "<leader>dh", ":DiffviewFileHistory<CR>", { desc = "DiffView: Branch history" })
 
 ---------------------------------插件快捷键----------------------------------
 -- local pluginKeys = {}

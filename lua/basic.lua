@@ -92,6 +92,8 @@ vim.g.mkdp_command_for_global = 1
 vim.g.mkdp_open_ip = '127.0.0.1'
 vim.g.mkdp_theme = 'dark'
 
+vim.opt.tags = { './tags', 'tags' }  -- 搜索 tags 文件的位置
+
 -- 自动关闭 NvimTree 功能
 vim.api.nvim_create_autocmd("BufEnter", {
   nested = true,
