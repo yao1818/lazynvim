@@ -3,7 +3,7 @@ return {
 
 {
   "lewis6991/gitsigns.nvim",
-  version = "*",
+  version = "0.8.0",
   config = function()
       require("gitsigns").setup {
         -- 字母图标 A 增加，C修改，D 删除

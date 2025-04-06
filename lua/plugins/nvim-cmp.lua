@@ -3,8 +3,14 @@ return {
 
 {
   "hrsh7th/nvim-cmp",
-  version = "*",
-  dependencies = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/vim-vsnip"},
+  commit = "983453e32cb35533a119725883c04436d16c0120",
+
+  dependencies = {
+    { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" },  -- 指定 cmp-buffer 的 commit
+    { "hrsh7th/cmp-path", commit = "91ff86cd9c29299a64f968ebb45846c485725f23" },    -- 指定 cmp-path 的 commit
+    { "hrsh7th/vim-vsnip", commit = "7753ba9c10429c29d25abfd11b4c60b76718c438" }    -- 指定 vim-vsnip 的 commit
+  },
+
   config = function()
       local cmp = require("cmp")
       require("cmp").setup {
