@@ -48,16 +48,28 @@ return {
         lspconfig.clangd.setup {
           cmd = {
             "clangd",
-            "--background-index",
-            "--clang-tidy",
-            "--header-insertion=iwyu",
-            "--completion-style=detailed",
-            "--function-arg-placeholders",
-            "--fallback-style=llvm"
-            --"--header-insertion=never",
-            --"--query-driver=/opt/homebrew/opt/llvm/bin/clang",
-            --"--all-scopes-completion",
-            --"--completion-style=detailed",
+            "--background-index",          -- 保留后台索引（按需关闭）
+            "--compile-commands-dir=build", -- 明确指定编译数据库目录
+            "--completion-style=detailed",  -- 简化补全信息
+            "--header-insertion=never",
+            "--query-driver=/usr/bin/g++",  -- 明确指定编译器路径
+            "--all-scopes-completion",     -- 限制补全作用域
+            "--limit-results=50",          -- 限制返回结果数量
+            "--malloc-trim",              -- 释放闲置内存
+            "--pch-storage=disk",         -- 预编译头存储到磁盘
+            "--pretty",                   -- 简化输出格式
+            "--log=error"                 -- 仅显示错误日志
+          },
+          init_options = {
+            clangdFileStatus = true,      -- 关闭实时诊断（按需）
+            usePlaceholders = false,      -- 禁用占位符标记
+          },
+          capabilities = {
+            textDocument = {
+              completion = {
+                editsNearCursor = true,  -- 减少自动补全的侵入性
+              }
+            }
           },
           filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
         }
