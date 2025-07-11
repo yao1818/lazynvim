@@ -98,6 +98,10 @@ vim.opt.smoothscroll = true
 vim.opt.scrolloff = 8         -- 保持光标距离顶部/底部的行数
 vim.opt.mousescroll = "ver:1" -- 鼠标滚轮步长
 
+-- 所有删除操作使用黑洞寄存器
+vim.keymap.set('n', 'd', '"_d', { noremap = true })
+vim.keymap.set('v', 'd', '"_d', { noremap = true })
+
 -- 自动关闭 NvimTree 功能
 vim.api.nvim_create_autocmd("BufEnter", {
   nested = true,
