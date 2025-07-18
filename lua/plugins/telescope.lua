@@ -11,6 +11,31 @@ return {
         defaults = {
           -- 打开弹窗后进入的初始模式，默认为 insert，也可以是 normal
           initial_mode = "insert",
+
+          layout_strategy = "vertical", -- 可选值：horizontal, vertical, flex, center, cursor
+          preview = true,  -- 确保预览启用（默认值为 true）
+          layout_config = {
+            horizontal = {
+              height = 0.99,            -- 窗口高度接近全屏
+              width = 0.95,             -- 窗口宽度接近全屏
+              preview_width = 0.7,       -- 预览窗口宽度占比
+              prompt_position = "bottom",   -- 输入框位置（top/bottom）
+              mirror = false,            -- 是否镜像翻转布局
+            },
+            vertical = {
+              height = 0.99,            -- 窗口高度接近全屏
+              width = 0.99,             -- 窗口宽度接近全屏
+              preview_cutoff = 1,       -- 即使内容很少也强制显示预览
+              preview_height = 0.6,      -- 预览窗口高度占比
+            },
+          },
+          path_display = { "smart" },     -- 智能缩短文件路径显示
+          preview = {
+            msg_bg_fillchar = " ",       -- 替换默认的消息背景填充字符（如空格或半角阴影字符）:cite[2]
+            hide_on_startup = false,      -- 是否初始隐藏预览窗口
+            filesize_limit = 1,           -- 文件大小限制（MB），超出则不预览
+          },
+
           -- 窗口内快捷键
           mappings = {
             i = {
@@ -33,6 +58,19 @@ return {
 
         extensions = {
            -- 扩展插件配置
+          fzf = {
+            fuzzy = true,                      -- 启用模糊匹配
+            override_generic_sorter = true,    -- 覆盖默认排序
+            override_file_sorter = true,       -- 覆盖文件排序
+            case_mode = "smart_case",          -- 区分大小写
+          },
+          sorting = {
+            -- 自定义排序函数
+            file_sorter = function(entry)
+              return entry.filename:lower() -- 按文件名小写字母排序
+            end,
+          },
+
         },
       }
   end
