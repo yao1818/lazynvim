@@ -137,12 +137,13 @@ map("n", "<leader>dv", ":DiffviewOpen<CR>", { desc = "DiffView: Open diff" })
 map("n", "<leader>dc", ":DiffviewClose<CR>", { desc = "DiffView: Close view" })
 map("n", "<leader>dh", ":DiffviewFileHistory<CR>", { desc = "DiffView: Branch history" })
 
+map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
+
 ---------------------------------插件快捷键----------------------------------
 -- local pluginKeys = {}
--- 
--- -- nvim-tree
--- -- alt + m 键打开关闭tree
--- map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
+-- nvim-tree
+map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
+
 -- -- 列表快捷键
 -- pluginKeys.nvimTreeList = {
 --   -- 打开文件或文件夹

@@ -3,8 +3,8 @@ return {
 
 {
   "williamboman/mason.nvim",
-  dependencies = {"neovim/nvim-lspconfig", "williamboman/mason-lspconfig.nvim"},
-  version = "*",
+  dependencies = {"williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig"},
+  version = "v2.0.0",
   config = function()
     require("mason").setup {
       ui = {
@@ -22,13 +22,13 @@ return {
       	"lua_ls",
         "bashls",
         "clangd",
-        "cmake",
+        -- "cmake",
         "pyright",
       },
     })
 
     local lspconfig = require('lspconfig')
-    require("mason-lspconfig").setup_handlers({
+    require("mason-lspconfig").setup({
       function (server_name)
         require("lspconfig")[server_name].setup{}
       end,
@@ -53,7 +53,8 @@ return {
             "--header-insertion=iwyu",
             "--completion-style=detailed",
             "--function-arg-placeholders",
-            "--fallback-style=llvm"
+            "--fallback-style=llvm",
+            "--header-insertion=never",  -- 禁止自动插入头文件
             --"--header-insertion=never",
             --"--query-driver=/opt/homebrew/opt/llvm/bin/clang",
             --"--all-scopes-completion",
