@@ -4,7 +4,7 @@ return {
 {
   "nvim-telescope/telescope.nvim",
   version = "*",
-  dependencies = {"nvim-lua/plenary.nvim"},
+  dependencies = {"nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons"},
   config = function()
       require("telescope").setup {
 
@@ -73,6 +73,62 @@ return {
 
         },
       }
+
+
+    require("nvim-web-devicons").setup {
+       override = {
+         -- 修改 .py 文件的图标
+         c = {
+           icon = "",
+           --color = "#F5F5F5",
+           color = "#428850", -- 边框或图标颜色
+           bg_color = nil, -- 透明背景
+           name = "c",
+         },
+         cpp = {
+           icon = "",
+           color = "#428850",
+           bg_color = "NONE", -- 透明背景
+           name = "cpp",
+         },
+         sh = {
+           icon = "󰈤",
+
+           color = "#428850",
+           name = "Python",
+         },
+         pl = {
+           icon = "",
+
+           color = "#428850",
+           name = "pl",
+         },
+         cmake = {
+           icon = "󱁻",
+
+           color = "#428850",
+           name = "cmake",
+         },
+         html = {
+           icon = "",  --   󰈔    󱁻  󰧮  󰈤 
+
+           color = "#428850",
+           name = "html",
+         },
+         -- 修改 .js 文件的图标
+         js = {
+           icon = "J",
+           color = "#EBDC78",
+           name = "JavaScript",
+         },
+         -- 添加自定义文件类型
+         ["config"] = {
+           icon = "⚙",
+           color = "#5F43E9",
+           name = "Terraform",
+         },
+       },
+    }
   end
 }
 

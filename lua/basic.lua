@@ -112,4 +112,19 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end
 })
 
+-- 配置Windows远程连接Linux时，打开nvim可以复制内容到Windows的剪切板
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+-- （可选）让无名寄存器直接与系统剪贴板联动
+vim.opt.clipboard:append('unnamedplus')
+
 --vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
