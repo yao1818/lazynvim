@@ -112,19 +112,30 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end
 })
 
+--  -- 创建自动命令组（用于统一管理相关事件）
+--  local trim_whitespace_augroup = vim.api.nvim_create_augroup("AutoTrimWhitespace", { clear = true })
+--
+--  -- 注册 BufWritePre 事件监听器
+--  vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--      pattern = "*",               -- 匹配所有文件类型
+--      command = [[:%s/\s\+$//e]],   -- &#9989; 使用原始字符串避免转义问题
+--      group = trim_whitespace_augroup,
+--  })
+
+
 -- 配置Windows远程连接Linux时，打开nvim可以复制内容到Windows的剪切板
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-  },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-  },
-}
+--vim.g.clipboard = {
+--  name = 'OSC 52',
+--  copy = {
+--    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+--    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+--  },
+--  paste = {
+--    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+--    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+--  },
+--}
 -- （可选）让无名寄存器直接与系统剪贴板联动
-vim.opt.clipboard:append('unnamedplus')
+-- vim.opt.clipboard:append('unnamedplus')
 
 --vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"

@@ -48,6 +48,7 @@ map("n", "s=", "<C-w>=", opt)
 
 map("n", "<C-space>", "", opt)
 
+-- 删除行尾空格
 
 -- Terminal相关
 map("n", "<C-t>", ":terminal<CR>", opt)
@@ -144,6 +145,32 @@ map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
 -- nvim-tree
 map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
 
+-- 清理行尾空格
+local function trim_trailing_whitespace()
+    vim.cmd(':%s/\\s\\+$//e')
+end
+
+-- 2. 设置快捷键映射（以 <leader>tw 为例）
+vim.keymap.set('n', '<C-l>', trim_trailing_whitespace, {
+    noremap = true,          -- 避免递归调用
+    silent = true,           -- 不显示消息提示
+    desc = "Trim trailing whitespace manually" -- 帮助文档描述
+})
+
+
+-- 1. 定义清理回车符（^M）的函数
+local function remove_carriage_return()
+    vim.cmd(':%s/\\r//g')    -- 执行全局替换，删除所有回车符（\r）  -- %s/\r//g
+end
+
+-- 2. 设置快捷键映射（以 <C-r> 为例）
+vim.keymap.set('n', '<C-m>', remove_carriage_return, {
+    noremap = true,          -- 避免递归调用
+    silent = true,           -- 不显示消息提示
+    desc = "Remove all carriage returns (^M)" -- 帮助文档描述
+})
+
+
 -- -- 列表快捷键
 -- pluginKeys.nvimTreeList = {
 --   -- 打开文件或文件夹
@@ -182,7 +209,7 @@ map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
 --     ["<C-d>"] = "preview_scrolling_down",
 --   },
 -- }
--- 
+--
 -- -- lsp 回调函数快捷键设置
 -- pluginKeys.mapLSP = function(mapbuf)
 --   -- rename
@@ -208,7 +235,7 @@ map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
 --   -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
 --   -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 -- end
--- 
+--
 -- -- nvim-cmp 自动补全
 -- pluginKeys.cmp = function(cmp)
 --     return {
@@ -233,17 +260,17 @@ map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
 --         ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
 --     }
 -- end
--- 
+--
 -- -- gitsigns
 -- pluginKeys.gitsigns_on_attach = function(bufnr)
 --   local gs = package.loaded.gitsigns
--- 
+--
 --   local function map(mode, l, r, opts)
 --     opts = opts or {}
 --     opts.buffer = bufnr
 --     vim.keymap.set(mode, l, r, opts)
 --   end
--- 
+--
 --   -- Navigation
 --   map("n", "<leader>gj", function()
 --     if vim.wo.diff then
@@ -256,7 +283,7 @@ map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
 --   end, {
 --     expr = true,
 --   })
--- 
+--
 --   map("n", "<leader>gk", function()
 --     if vim.wo.diff then
 --       return "[c"
@@ -268,7 +295,7 @@ map("n", "<F3>", ":NvimTreeToggle<CR>", opt)
 --   end, {
 --     expr = true,
 --   })
--- 
+--
 -- --  map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>")
 --   map("n", "<leader>gS", gs.stage_buffer)
 --   map("n", "<leader>gu", gs.undo_stage_hunk)

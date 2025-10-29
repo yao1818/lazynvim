@@ -3,17 +3,18 @@ return {
 
 {
   "lewis6991/gitsigns.nvim",
-  version = "0.8.0",
+  version = "1.0.2",
   config = function()
       require("gitsigns").setup {
         -- 字母图标 A 增加，C修改，D 删除
         signs = {
-          add          = { hl = "GitSignsAdd",    text = "+", numhl = "GitSignsAddNr",    linehl = "GitSignsAddLn" },
-          change       = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-          delete       = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-          topdelete    = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-          changedelete = { hl = "GitSignsChange", text = "*", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+          add          = { text = "+", },
+          change       = { text = "~", },
+          delete       = { text = "_", },
+          topdelete    = { text = "‾", },
+          changedelete = { text = "*", },
         },
+
         -- 显示图标
         signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
         -- 行数高亮
@@ -33,9 +34,9 @@ return {
           delay = 1000,
           ignore_whitespace = false,
         },
-        current_line_blame_formatter_opts = {
-          relative_time = false,
-        },
+        -- current_line_blame_formatter_opts = {
+        --   relative_time = false,
+        -- },
         sign_priority = 6,
         update_debounce = 100,
         status_formatter = nil, -- Use default
@@ -48,9 +49,9 @@ return {
           row = 0,
           col = 1,
         },
-        yadm = {
-          enable = false,
-        },
+        -- yadm = {
+        --   enable = false,
+        -- },
         --on_attach = require("keybindings").gitsigns_on_attach,
         on_attach = function(bufnr)
           local function map(mode, lhs, rhs, opts)
