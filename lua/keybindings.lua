@@ -70,8 +70,10 @@ map("t", "<C-l>", [[ <C-\><C-N><C-w>l ]], opt)
 --map("n", "<C-j>", "4j", opt)
 --map("n", "<C-k>", "4k", opt)
 -- ctrl u / ctrl + d  只移动9行，默认移动半屏
-map("n", "<C-u>", "9k", opt)
-map("n", "<C-d>", "9j", opt)
+map("n", "<C-u>", "10k", opt)
+map("n", "<C-d>", "10j", opt)
+map("v", "<C-u>", "10k", opt)
+map("v", "<C-d>", "10j", opt)
 
 -- insert 模式下，跳到行首行尾
 map("i", "<C-h>", "<ESC>I", opt)
@@ -151,7 +153,7 @@ local function trim_trailing_whitespace()
 end
 
 -- 2. 设置快捷键映射（以 <leader>tw 为例）
-vim.keymap.set('n', '<C-l>', trim_trailing_whitespace, {
+vim.keymap.set('n', '<C-c>', trim_trailing_whitespace, {
     noremap = true,          -- 避免递归调用
     silent = true,           -- 不显示消息提示
     desc = "Trim trailing whitespace manually" -- 帮助文档描述
@@ -164,7 +166,7 @@ local function remove_carriage_return()
 end
 
 -- 2. 设置快捷键映射（以 <C-r> 为例）
-vim.keymap.set('n', '<C-m>', remove_carriage_return, {
+vim.keymap.set('n', '<C-w>', remove_carriage_return, {
     noremap = true,          -- 避免递归调用
     silent = true,           -- 不显示消息提示
     desc = "Remove all carriage returns (^M)" -- 帮助文档描述
