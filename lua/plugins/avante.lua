@@ -13,8 +13,8 @@ return {
 
         providers = {
           openai = {
-            endpoint = "https://open.bigmodel.cn/api/paas/v4",
-            model = "glm-4-plus",
+            endpoint = "https://open.bigmodel.cn/api/coding/paas/v4",
+            model = "GLM-4.7",
 
             -- 👇 确保这里写死的是你的 Key
             api_key = "5dd7e0dc737340f4911c4623931f0479.OMYvBRrGABq1Konq",
@@ -37,13 +37,6 @@ return {
           icon = "",
         }
       }
-
-      -- 2. 【调试步骤】打印读取到的 Key 前10位，让你确认插件是否真的读到了
-      local loaded_key = opts.providers.openai.api_key or "NOT_FOUND"
-      print("------------------------------------------------")
-      print("✅ Avante 配置已加载!")
-      print("API Key 读取状态: " .. string.sub(loaded_key, 1, 10) .. "...")
-      print("------------------------------------------------")
 
       -- 3. 强制执行 setup
       require("avante").setup(opts)
