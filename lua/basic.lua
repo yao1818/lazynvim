@@ -139,3 +139,43 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- vim.opt.clipboard:append('unnamedplus')
 
 --vim.opt.foldtext = "v:lua.require('utils.simple_fold').simple_fold()"
+
+
+-- Avante 插件外观配置
+vim.api.nvim_set_hl(0, 'AvanteSidebarWinSeparator', {
+  fg = '#504945',     -- 分隔符颜色
+  bg = '#1D2021',     -- 分隔符背景
+})
+
+vim.api.nvim_set_hl(0, 'AvanteSidebarWinHorizontalSeparator', {
+  fg = '#282828',     -- 水平分隔符颜色
+  bg = '#1D2021',     -- 背景色
+})
+
+vim.api.nvim_set_hl(0, 'AvanteSidebarNormal', {
+  fg = '#ABB2BF',
+  bg = '#1D2021',
+})
+
+vim.api.nvim_set_hl(0, 'AvanteTitle', {
+  fg = '#B8BB50',     -- 深色文字
+  bg = '#1D2021',     -- 绿色背景
+  bold = true,        -- 粗体
+})
+
+vim.api.nvim_set_hl(0, 'AvanteSubtitle', {
+  fg = '#B8BB50',     -- 深色文字
+  bg = '#1D2021',     -- 青色背景
+})
+
+vim.api.nvim_set_hl(0, 'AvanteThirdTitle', {
+  fg = '#ABB2BF',     -- 浅色文字
+  bg = '#1D2021',     -- 深灰色背景
+})
+
+vim.opt.fillchars = {
+  vert = '│',        -- 垂直分隔符
+  horiz = '─',       -- 水平分隔符
+  verthoriz = '┼',   -- 十字分隔符
+}
+

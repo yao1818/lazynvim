@@ -33,9 +33,12 @@ return {
           auto_set_keymaps = true,
           auto_apply_diff_after_generation = false,
         },
+
         ui = {
-          icon = "",
-        }
+          icon = "[",
+        },
+
+
       }
 
       -- 3. 强制执行 setup
