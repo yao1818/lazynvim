@@ -251,25 +251,11 @@ Your branch is up to date with 'origin/main'.
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)
-        modified:   lua/avante/config.lua
         modified:   lua/avante/highlights.lua
         modified:   lua/avante/sidebar.lua
 
 no changes added to commit (use "git add" and/or "git commit -a")
 yao:~/.local/share/nvim/lazy/avante.nvim$ git diff
-diff --git a/lua/avante/config.lua b/lua/avante/config.lua
-index 804ccc8..1352c09 100644
---- a/lua/avante/config.lua
-+++ b/lua/avante/config.lua
-@@ -740,7 +740,7 @@ M._defaults = {
-     ask = {
-       floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-       border = { " ", " ", " ", " ", " ", " ", " ", " " },
--      start_insert = true, -- Start insert mode when opening the ask window
-+      start_insert = false, -- Start insert mode when opening the ask window
-       ---@alias AvanteInitialDiff "ours" | "theirs"
-       ---@type AvanteInitialDiff
-       focus_on_apply = "ours", -- which diff to focus after applying
 diff --git a/lua/avante/highlights.lua b/lua/avante/highlights.lua
 index b061f6c..85fde64 100644
 --- a/lua/avante/highlights.lua
@@ -294,7 +280,7 @@ index b061f6c..85fde64 100644
    ANNOTATION = { name = "AvanteAnnotation", link = "Comment" },
    POPUP_HINT = { name = "AvantePopupHint", link = "NormalFloat" },
 diff --git a/lua/avante/sidebar.lua b/lua/avante/sidebar.lua
-index e696f33..e656bc2 100644
+index e696f33..e377f44 100644
 --- a/lua/avante/sidebar.lua
 +++ b/lua/avante/sidebar.lua
 @@ -1001,9 +1001,9 @@ function Sidebar:render_header(winid, bufnr, header_text, hl, reverse_hl)
@@ -338,6 +324,20 @@ index e696f33..e656bc2 100644
        ask and "Ask" or "Chat with",
        self.code.selection.range.start.lnum,
        self.code.selection.range.finish.lnum,
+@@ -3332,11 +3332,11 @@ function Sidebar:create_selected_files_container()
+
+     local project_path = Utils.root.get()
+     for i, filepath in ipairs(selected_filepaths_) do
+-      local icon, hl = Utils.file.get_file_icon(filepath)
++      local icon = "▸"
++      local hl = ""
+       local renderpath = PPath:new(filepath):normalize(project_path)
+       local formatted_line = string.format("%s %s", icon, renderpath)
+       table.insert(lines_to_set, formatted_line)
+-      if hl and hl ~= "" then table.insert(highlights_to_apply, { line_nr = i, icon = icon, hl = hl }) end
+     end
+
+     local selected_files_count = #lines_to_set ---@type integer
 @@ -3363,7 +3363,7 @@ function Sidebar:create_selected_files_container()
        selected_files_buf,
        string.format(

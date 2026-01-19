@@ -59,12 +59,26 @@ return {
             "--function-arg-placeholders",
             "--fallback-style=llvm",
             "--header-insertion=never",  -- 禁止自动插入头文件
-            --"--header-insertion=never",
-            --"--query-driver=/opt/homebrew/opt/llvm/bin/clang",
-            --"--all-scopes-completion",
-            --"--completion-style=detailed",
+            "--cross-file-rename",            -- 跨文件重命名
+            "--completion-parse=always",      -- 始终解析补全
+            "--pch-storage=memory",           -- 预编译头文件存储方式
+            "--pretty",                       -- 美化输出
           },
           filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+          capabilities = {
+            textDocument = {
+              completion = {
+                completionItem = {
+                  snippetSupport = true,      -- 支持代码片段
+                }
+              }
+            }
+          },
+          init_options = {
+            usePlaceholders = true,           -- 使用占位符
+            completeUnimported = true,        -- 补全未导入的符号
+            clangdFileStatus = true,          -- 显示文件状态
+          },
         }
       end
     })
@@ -135,6 +149,16 @@ return {
       end
     })
 
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'sh',
+      callback = function()
+        vim.lsp.start({
+          name = 'bashls',
+          cmd = {'bash-language-server', 'start'},
+          root_dir = vim.fn.getcwd(),
+        })
+      end,
+    })
   end
 }
 
