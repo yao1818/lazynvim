@@ -53,13 +53,7 @@ return {
     end,
 
     dependencies = {
-      {
-        "stevearc/dressing.nvim",
-        opts = {
-          input = { enabled = true },
-        },
-      },
-      -- "stevearc/dressing.nvim",
+      "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "MunifTanjim/nui.nvim",
