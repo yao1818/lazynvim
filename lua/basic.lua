@@ -181,3 +181,26 @@ vim.opt.fillchars = {
   verthoriz = '┼',   -- 十字分隔符
 }
 
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH1Bg', { bg = '#2a2e33' }) -- 微蓝灰
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH2Bg', { bg = '#272b30' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH3Bg', { bg = '#24282d' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH4Bg', { bg = '#21252a' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH5Bg', { bg = '#1e2227' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH6Bg', { bg = '#1b1f24' })
+
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH1Bg', { bg = '#2c2f2f' }) -- 微褐灰
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH2Bg', { bg = '#292c2c' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH3Bg', { bg = '#262929' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH4Bg', { bg = '#232626' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH5Bg', { bg = '#202323' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH6Bg', { bg = '#1d2020' })
+
+vim.api.nvim_set_hl(0, 'RenderMarkdownH1Bg', { bg = '#32363a' }) -- 明显深灰，稳重
+vim.api.nvim_set_hl(0, 'RenderMarkdownH2Bg', { bg = '#2c3034' }) -- 稍亮
+vim.api.nvim_set_hl(0, 'RenderMarkdownH3Bg', { bg = '#262a2e' }) -- 中等深灰
+vim.api.nvim_set_hl(0, 'RenderMarkdownH4Bg', { bg = '#212529' }) -- 开始变浅，清晰可见
+vim.api.nvim_set_hl(0, 'RenderMarkdownH5Bg', { bg = '#1c2024' }) -- 明显比背景亮
+vim.api.nvim_set_hl(0, 'RenderMarkdownH6Bg', { bg = '#181c20' }) -- 最浅，但仍是深灰（非白！）
+
+vim.api.nvim_set_hl(0, 'RenderMarkdownBullet', { fg = '#83A598' })
+

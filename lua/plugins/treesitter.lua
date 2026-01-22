@@ -68,6 +68,9 @@ return {
         ["@parameter"] = { fg = "#d5c4a1", bold = false};
         ["@property"] = { fg = "#d5c4a1", bold = false};
         ["@operator"] = { fg = "#bfc4a1", bold = false};
+        --["@spell"] = { fg = "#bfc4a1", bold = false};
+        --["@markup.heading.2"] = { fg = "#B8BB50", bold = true};
+        --["@markup.list"] = { fg = "#B8BB50", bold = true};
 
       }),
 
