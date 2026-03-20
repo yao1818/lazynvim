@@ -15,13 +15,17 @@ return {
           openai = {
             -- endpoint = "https://open.bigmodel.cn/api/coding/paas/v4",
             -- model = "GLM-4.7",
-            endpoint = "https://api.deepseek.com/v1",
-            model = "deepseek-coder",
+            -- endpoint = "https://api.deepseek.com/v1",
+            -- model = "deepseek-coder",
+            endpoint = "https://api.xiaomimimo.com/v1",
+            model = "mimo-v2-flash",  -- DeepSeek-V3.1-Terminus GLM-4.7 mimo-v2-flash
+            -- system_message = [[You are MiMo, an AI assistant developed by Xiaomi. Today is Tuesday, December 16, 2025. Your knowledge cutoff date is December 2024.]],
 
             timeout = 30000,
             extra_request_body = {
-              temperature = 0,
-              max_tokens = 4096,
+              temperature = 0.3,
+              max_tokens = 131072,
+              top_p = 0.1,
             },
           },
         },

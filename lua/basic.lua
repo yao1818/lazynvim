@@ -203,4 +203,5 @@ vim.api.nvim_set_hl(0, 'RenderMarkdownH5Bg', { bg = '#1c2024' }) -- 明显比背
 vim.api.nvim_set_hl(0, 'RenderMarkdownH6Bg', { bg = '#181c20' }) -- 最浅，但仍是深灰（非白！）
 
 vim.api.nvim_set_hl(0, 'RenderMarkdownBullet', { fg = '#83A598' })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownCode', { fg = '#3C3836' })
 
