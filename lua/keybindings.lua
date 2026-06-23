@@ -14,7 +14,7 @@ local var
 
 map("n", "c-i", "", opt)
 -- 取消 s 默认功能
-map("n", "s", "", opt)
+-- map("n", "s", "", opt)
 -- 分屏快捷键
 map("n", "vs", ":vsp<CR>", opt)
 
@@ -116,6 +116,39 @@ map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 -- 搜索buffer
 map("n", "<C-g>", ":Telescope buffers<CR>", opt)
+
+-- 当前文件内 grep 并打开 quickfix 列表
+function _G.quickfix_text_without_location(info)
+    local list = info.quickfix == 1
+        and vim.fn.getqflist({ id = info.id, items = 0 }).items
+        or vim.fn.getloclist(info.winid, { id = info.id, items = 0 }).items
+    local lines = {}
+
+    for i = info.start_idx, info.end_idx do
+        local item = list[i]
+        table.insert(lines, item.text or "")
+    end
+
+    return lines
+end
+
+vim.o.quickfixtextfunc = "v:lua._G.quickfix_text_without_location"
+
+local function grep_current_file()
+    local keyword = vim.fn.input("Grep keyword: ")
+    if keyword == "" then
+        return
+    end
+
+    vim.cmd("silent grep! " .. vim.fn.shellescape(keyword) .. " " .. vim.fn.fnameescape(vim.fn.expand("%")))
+    vim.cmd("copen")
+end
+
+vim.keymap.set("n", "<leader>fg", grep_current_file, {
+    noremap = true,
+    silent = true,
+    desc = "Grep keyword in current file"
+})
 
 map("n", "<c-i>m", ":MarkdownPreview<CR>", opt)
 
